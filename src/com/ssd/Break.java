@@ -3,6 +3,7 @@ package com.ssd;
 public class Break {
 	public static void main(String[] args) {
 		int n = 25;
+		System.out.println("Break example program");
 		for (int i = 0; i <= n; i++) {
 
 			if (i == 7) {

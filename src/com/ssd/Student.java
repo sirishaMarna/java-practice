@@ -1,68 +1,86 @@
-package com.ssd;
+package com.exampleskar;
 
-public class Student {
-	public static int telugu;
-	public static int hindi;
-	public static int english;
-	public static int maths;
-	public static int science;
-	public static int social;
+import java.util.Comparator;
+import java.util.Iterator;
 
-	public boolean isPassOrFail(int marks) {
-		boolean isPass = false;
-		if (marks >= 35) {
-			isPass = true;
-		} else {
-			isPass = false;
-		}
-		return isPass;
+public class Student implements Comparable<Student>  {
+	
+	
+	public String name;
+	public Integer rollNo;
+	public String id;
+	
+	
+	public Student(String name, Integer rollNo, String id) {
+		super();
+		this.name = name;
+		this.rollNo = rollNo;
+		this.id = id;
+	}
+	
+	
+
+	public Student() {
+		super();
 	}
 
-	public int totalMarks(int telugu, int hindi, int english, int maths, int science, int social) {
-	int	totalMarks = telugu + hindi + english + maths + science + social;
-		return totalMarks;
+
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getRollNo() {
+		return rollNo;
+	}
+	public void setRollNo(Integer rollNo) {
+		this.rollNo = rollNo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String grade(int totalMarks) {
-		String grade = " ";
-		if (totalMarks > 360) {
-			grade = "First class";
 
-		} else if (totalMarks > 300 && totalMarks < 359) {
-			grade = "Second class";
-		} else if (totalMarks > 250 && totalMarks < 299) {
-			grade = "Third class";
 
-		} else {
-			grade = "Fail...";
-		}
-		return grade;
-
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", rollNo=" + rollNo + ", id=" + id + "]";
 	}
 
-	public static void main(String[] args) {
-		Student siri = new Student();
-		siri.telugu = 98;
-		siri.hindi = 86;
-		siri.english = 95;
-		siri.maths = 86;
-		siri.science = 100;
-		siri.social = 99;
 
-		boolean istelugupass = siri.isPassOrFail(telugu);
-		boolean ishindipass = siri.isPassOrFail(hindi);
-		boolean isenlishpass = siri.isPassOrFail(english);
-		boolean ismathspass = siri.isPassOrFail(maths);
-		boolean issciencepass = siri.isPassOrFail(science);
-		boolean issocialpass = siri.isPassOrFail(social);
-		if (istelugupass && ishindipass && isenlishpass && ismathspass && issciencepass && issocialpass) {
-			int allSubjectMarks = siri.totalMarks(telugu, hindi, english, maths, science, social);
-			String studentClass = siri.grade(allSubjectMarks);
-			System.out.println("pass with....😍" + allSubjectMarks +"...." + studentClass);
-		} else {
-			int allSubjectMarks = siri.totalMarks(telugu, hindi, english, maths, science, social);
-			System.out.println("Fail with" );
-		}
+
+	/*@Override
+	public int compareTo(Student o) {
+		
+		return this.rollNo-o.rollNo;
 	}
+
+
+*/
+	//rollNo.compareTo(o.getRollNo());
+	
+
+
+
+	@Override
+	public int compareTo(Student o) {
+		
+		return this.name.compareTo(o.getName());
+	}
+
+	
+
+
+	
+
+
+	
+	
+	
 
 }
